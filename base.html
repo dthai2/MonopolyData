@@ -1,0 +1,241 @@
+Last login: Thu Dec  1 22:23:26 on ttys004
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db -l logfile start
+zsh: command not found: pg_ctl
+gnouchhi@gnoucchiMacBook-Pro ~ % nano templates/index.html          
+gnouchhi@gnoucchiMacBook-Pro ~ % nano app.py                        
+gnouchhi@gnoucchiMacBook-Pro ~ % mkdir templates
+nano templates/base.html
+mkdir: templates: File exists
+gnouchhi@gnoucchiMacBook-Pro ~ % nano app.py              
+gnouchhi@gnoucchiMacBook-Pro ~ % nano templates/index.html
+gnouchhi@gnoucchiMacBook-Pro ~ % python3 -m flask run               
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+[2022-12-01 23:55:28,106] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/gnouchhi/app.py", line 17, in index
+    conn = get_db_connection()
+  File "/Users/gnouchhi/app.py", line 10, in get_db_connection
+    user=os.environ['DB_USERNAME'],
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/os.py", line 675, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DB_USERNAME'
+127.0.0.1 - - [01/Dec/2022 23:55:28] "GET / HTTP/1.1" 500 -
+[2022-12-01 23:55:28,114] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/gnouchhi/app.py", line 17, in index
+    conn = get_db_connection()
+  File "/Users/gnouchhi/app.py", line 10, in get_db_connection
+    user=os.environ['DB_USERNAME'],
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/os.py", line 675, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DB_USERNAME'
+127.0.0.1 - - [01/Dec/2022 23:55:28] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 500 -
+[2022-12-01 23:55:28,117] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/gnouchhi/app.py", line 17, in index
+    conn = get_db_connection()
+  File "/Users/gnouchhi/app.py", line 10, in get_db_connection
+    user=os.environ['DB_USERNAME'],
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/os.py", line 675, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DB_USERNAME'
+127.0.0.1 - - [01/Dec/2022 23:55:28] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 500 -
+[2022-12-01 23:55:28,118] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/gnouchhi/app.py", line 17, in index
+    conn = get_db_connection()
+  File "/Users/gnouchhi/app.py", line 10, in get_db_connection
+    user=os.environ['DB_USERNAME'],
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/os.py", line 675, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DB_USERNAME'
+127.0.0.1 - - [01/Dec/2022 23:55:28] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 500 -
+127.0.0.1 - - [01/Dec/2022 23:55:28] "GET /favicon.ico HTTP/1.1" 404 -
+q
+quit()
+^C%                                                                             gnouchhi@gnoucchiMacBook-Pro ~ % nano app.py              
+gnouchhi@gnoucchiMacBook-Pro ~ % python3 -m flask run
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+[2022-12-01 23:56:59,288] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/gnouchhi/app.py", line 17, in index
+    conn = get_db_connection()
+  File "/Users/gnouchhi/app.py", line 10, in get_db_connection
+    user=os.environ['DB_USERNAME'],
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/os.py", line 675, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DB_USERNAME'
+127.0.0.1 - - [01/Dec/2022 23:56:59] "GET / HTTP/1.1" 500 -
+^[[A^[[A^[[B^[[B^[[B^[[B
+^C%                                                                             gnouchhi@gnoucchiMacBook-Pro ~ % nano templates/index.html
+gnouchhi@gnoucchiMacBook-Pro ~ % mkdir templates
+nano templates/base.html
+mkdir: templates: File exists
+gnouchhi@gnoucchiMacBook-Pro ~ % nano templates/index.html
+gnouchhi@gnoucchiMacBook-Pro ~ % python3 -m flask run     
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+[2022-12-01 23:58:56,443] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/gnouchhi/Library/Python/3.8/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/gnouchhi/app.py", line 17, in index
+    conn = get_db_connection()
+  File "/Users/gnouchhi/app.py", line 10, in get_db_connection
+    user=os.environ['DB_USERNAME'],
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/os.py", line 675, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DB_USERNAME'
+127.0.0.1 - - [01/Dec/2022 23:58:56] "GET / HTTP/1.1" 500 -
+^C%                                                                             gnouchhi@gnoucchiMacBook-Pro ~ % nano templates/index.html
+gnouchhi@gnoucchiMacBook-Pro ~ % nano templates/base.html           
+gnouchhi@gnoucchiMacBook-Pro ~ % mkdir templates                    
+nano templates/base.html
+mkdir: templates: File exists
+gnouchhi@gnoucchiMacBook-Pro ~ % nano app.py              
+gnouchhi@gnoucchiMacBook-Pro ~ % export DB_USERNAME="gnouchhi"
+gnouchhi@gnoucchiMacBook-Pro ~ % export DB_PASSWORD="4864"
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db -l logfile start
+zsh: command not found: pg_ctl
+gnouchhi@gnoucchiMacBook-Pro ~ % export PATH="/Library/PostgreSQL/14/bin:${PATH}"
+gnouchhi@gnoucchiMacBook-Pro ~ % export PGPORT=4123
+gnouchhi@gnoucchiMacBook-Pro ~ % export PGHOST=/tmp
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db -l logfile start
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db -l logfile start
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D monopoly -l logfile start
+pg_ctl: directory "monopoly" does not exist
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db -l logfile start
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db stop
+waiting for server to shut down.... done
+server stopped
+gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db -l logfile start
+waiting for server to start.... done
+server started
+gnouchhi@gnoucchiMacBook-Pro ~ % python3 -m flask run              
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+127.0.0.1 - - [02/Dec/2022 00:10:12] "GET / HTTP/1.1" 200 -
+^C%                                                                             gnouchhi@gnoucchiMacBook-Pro ~ % nano app.pynano templates/index.html
+gnouchhi@gnoucchiMacBook-Pro ~ % 
+gnouchhi@gnoucchiMacBook-Pro ~ % python3 -m flask run                
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+c127.0.0.1 - - [02/Dec/2022 00:18:38] "GET / HTTP/1.1" 200 -
+^C%                                                                             gnouchhi@gnoucchiMacBook-Pro ~ % pg_ctl -D flask_db stop             
+waiting for server to shut down.... done
+server stopped
+gnouchhi@gnoucchiMacBook-Pro ~ % nano init_db.py
+gnouchhi@gnoucchiMacBook-Pro ~ % nano app.py
+gnouchhi@gnoucchiMacBook-Pro ~ % mkdir templates
+nano templates/base.html
+mkdir: templates: File exists
+
+  GNU nano 2.0.6           File: templates/base.html                            
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- FlaskApp</title>
+    <style>
+        nav a {
+            color: #d64161;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        .play {
+            padding: 20px;
+            margin: 10px;
+            background-color: #f7f4f4;
+        }
+
+        .gameid {
+                margin-left: 50px;
+                font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">FlaskApp</a>
+        <a href="#">About</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
