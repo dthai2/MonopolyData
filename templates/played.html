@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Stats {% endblock %}</h1>
+    <form method="post">
+        <p>
+            <label for="userid">User ID:</label>
+            <input type="number" name="userid"
+                   placeholder="Enter userid">
+            </input>
+        </p>
+
+        <p>
+            <label for="gameid">Game ID:</label>
+            <input type="number" name="gameid"
+                   placeholder="Enter gameid">
+            </input>
+        </p>
+
+        <p>
+            <label for="Money">Remaining Balance:</label>
+            <input type="number" name="Money"
+                   placeholder="Enter remaining balance of player">
+            </input>
+        </p>
+        
+        <p>
+            <label for="streetsowned">Streets Owned by Player:</label>
+            <input type="text" name="streetsowned"
+                   placeholder="Separate by commas">
+            </input>
+        </p>
+
+        <p>
+            <label for="railroadsowned">Railroads Owned by Player:</label>
+            <input type="text" name="railroadsowned"
+                   placeholder="Separate by commas">
+            </input>
+        </p>
+
+        <p>
+            <label for="utilitiesowned">Utilities Owned by Player:</label>
+            <input type="text" name="utilitiesowned"
+                   placeholder="Separate by commas">
+            </input>
+        </p>
+
+        <p>
+            <label for="numofproperties">Total number of properties:</label>
+            <input type="number" name="numofproperties"
+                   placeholder="Enter total properties">
+            </input>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+
+        
+    </form>
+{% endblock %}

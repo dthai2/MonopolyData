@@ -11,9 +11,6 @@
             text-decoration: none;
         }
 
-        .x{
-            font-size: 3em; 
-        }
         .play {
             padding: 20px;
             margin: 10px;
@@ -31,6 +28,8 @@
     <nav>
         <a href="{{ url_for('index') }}">Index</a>
         <a href="{{ url_for('create') }}">Add a player</a>
+        <a href="{{ url_for('createGame') }}">Add a game</a>
+        <a href="{{ url_for('createPlayed') }}">Add game stats</a>
         <a href="#"></a>
     </nav>
     <hr>

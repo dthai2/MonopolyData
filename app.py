@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, flash, request, url_for, redirect
 
 app = Flask(__name__)
 
@@ -22,6 +22,7 @@ def index():
     cur.close()
     conn.close()
     return render_template('index.html', played=played)
+
 
 @app.route('/create/', methods=('GET', 'POST'))
 def create():
@@ -45,3 +46,73 @@ def create():
         return redirect(url_for('index'))
 
     return render_template('create.html')
+
+@app.route('/games/', methods=('GET', 'POST'))
+def createGame():
+    if request.method == 'POST':
+        gameid = int(request.form["gameid"])
+        players = int(request.form['players'])
+        winner = int(request.form['winner'])
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        #check if game id already exists/checks if game id
+        query = 'select COUNT(*) from "game" where gameid = %s'
+        cur.execute(query, (gameid,))
+        count = cur.fetchone()[0]
+
+        query1 = 'select COUNT(*) from "user" where userid = %s'
+        cur.execute(query1, (winner,))
+        user_count = cur.fetchone()[0]
+
+        if count == 0 and user_count ==1 :
+            #insert into game
+            cur.execute('INSERT INTO "game" (gameid, numberofplayers, winnerid)'
+                    'VALUES (%s, %s, %s)',
+                    (gameid, players, winner))
+            #update count of winner
+            query2 = 'UPDATE "user" SET gameswon = gameswon + 1 WHERE userid = %s'
+            cur.execute(query2, (winner,))
+      
+        
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('index'))
+
+    return render_template('games.html')
+
+@app.route('/played/', methods=('GET', 'POST'))
+def createPlayed():
+    if request.method == 'POST':
+        userid = int(request.form["userid"])
+        gameid = int(request.form["gameid"])
+        Money = int(request.form["Money"])
+        streetsowned = request.form["streetsowned"]
+        railroadsowned = request.form["railroadsowned"]
+        utilitiesowned = request.form["utilitiesowned"]
+        numofproperties = int(request.form["numofproperties"])
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+        
+         #check if game id exists
+        query = 'select COUNT(*) from "game" where gameid = %s'
+        cur.execute(query, (gameid,))
+        count = cur.fetchone()[0]
+
+        query1 = 'select COUNT(*) from "user" where userid = %s'
+        cur.execute(query1, (userid,))
+        user_count = cur.fetchone()[0]
+
+        if count == 1 and user_count >0:
+            cur.execute('INSERT INTO "played" (userid, gameid, money, streetsowned, railroadsowned, utilitiesowned, numproperties)'
+                    'VALUES (%s, %s, %s, %s, %s, %s, %s)',
+                    (userid, gameid, Money, streetsowned, railroadsowned, utilitiesowned, numofproperties))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('index'))
+
+    return render_template('played.html')

@@ -15,9 +15,6 @@ cur = conn.cursor()
 
 # Insert data into the table
 
-cur.execute('insert into "game" (gameid, numberofplayers)'
-                'values (%s, %s)',
-                (2005, 5))
 
 conn.commit()
 
