@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Game {% endblock %}</h1>
+    <form method="post">
+    
+        <p>
+            <label for="gameid">Game ID</label>
+            <input type="number" name="gameid"
+                   placeholder="Enter gameid">
+            </input>
+            <label>*game id in the form 2*** (2000, 2001)</label>
+        </p>
+
+        <p>
+            <label for="players">Number of Players</label>
+            <input type="number" name="players"
+                   placeholder="Enter number of players">
+            </input>
+        </p>
+        
+        <p>
+            <label for="winner">Winner of the game</label>
+            <input type="number" name="winner"
+                   placeholder="Enter user id of the winner">
+            </input>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+
+    </form>
+{% endblock %}

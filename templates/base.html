@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- FlaskApp</title>
+    <style>
+        nav a {
+            color: #d64161;
+            font-size: 20px;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        .play {
+            padding: 20px;
+            margin: 10px;
+            background-color: #f7f4f4;
+        }
+
+        .gameid {
+                margin-left: 50px;
+                font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Index</a>
+        <a href="{{ url_for('create') }}">Add a player</a>
+        <a href="{{ url_for('createGame') }}">Add a game</a>
+        <a href="{{ url_for('createPlayed') }}">Add game stats</a>
+        <a href="#"></a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
