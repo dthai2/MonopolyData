@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Monopoly Players {% endblock %}</h1>
+    <div class="table">
+        {% for player in user %}
+            <div class='player'>
+                <b><p>User ID: {{ player[0] }}</p></b>
+                <p>Name: {{ player[1] }}</p>
+                <p>Games Played: {{ player[2] }}</p>
+                <p>Games Won: {{ player[3] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
