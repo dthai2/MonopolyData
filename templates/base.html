@@ -21,15 +21,26 @@
                 margin-left: 50px;
                 font-size: 20px;
         }
+        
+        .table {
+            margin: 5px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
 
     </style>
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">Index</a>
-        <a href="{{ url_for('create') }}">Add a player</a>
-        <a href="{{ url_for('createGame') }}">Add a game</a>
-        <a href="{{ url_for('createPlayed') }}">Add game stats</a>
+        <a href="{{ url_for('index') }}">Game Stats</a>
+        <a href="{{ url_for('userStats') }}">User Stats</a>
+        <a href="{{ url_for('create') }}">[Add A Player]</a>
+        <a href="{{ url_for('createGame') }}">[Add A Game]</a>
+        <a href="{{ url_for('createPlayed') }}">[Add Game Stats]</a>
+        <a href="{{ url_for('gamedelete') }}">[Delete A Game]</a>
+        <a href="{{ url_for('playerdelete') }}">[Delete A Player]</a>
         <a href="#"></a>
     </nav>
     <hr>
