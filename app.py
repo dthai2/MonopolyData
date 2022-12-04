@@ -6,12 +6,10 @@ app = Flask(__name__)
 
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
-                            port='8888',
                             database='monopoly',
                             user=os.environ['DB_USERNAME'],
                             password=os.environ['DB_PASSWORD'])
     return conn
-
 
 @app.route('/')
 def index():
@@ -23,6 +21,15 @@ def index():
     conn.close()
     return render_template('index.html', played=played)
 
+@app.route('/userinfo')
+def userStats():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM "user";')
+    user = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('userinfo.html', user=user)
 
 @app.route('/create/', methods=('GET', 'POST'))
 def create():
@@ -33,7 +40,7 @@ def create():
 
         conn = get_db_connection()
         cur = conn.cursor()
-        # need to generate a count for user 
+        # need to generate a count for user
         cur.execute('SELECT COUNT(*) FROM "user"')
         user_count = cur.fetchone()[0]
         id = user_count + 1000
@@ -74,8 +81,8 @@ def createGame():
             #update count of winner
             query2 = 'UPDATE "user" SET gameswon = gameswon + 1 WHERE userid = %s'
             cur.execute(query2, (winner,))
-      
-        
+
+
         conn.commit()
         cur.close()
         conn.close()
@@ -96,7 +103,7 @@ def createPlayed():
 
         conn = get_db_connection()
         cur = conn.cursor()
-        
+
          #check if game id exists
         query = 'select COUNT(*) from "game" where gameid = %s'
         cur.execute(query, (gameid,))
@@ -107,12 +114,60 @@ def createPlayed():
         user_count = cur.fetchone()[0]
 
         if count == 1 and user_count >0:
-            cur.execute('INSERT INTO "played" (userid, gameid, money, streetsowned, railroadsowned, utilitiesowned, numproperties)'
+            cur.execute('INSERT INTO "played" (userid, gameid, money, streetsowned, rail$
                     'VALUES (%s, %s, %s, %s, %s, %s, %s)',
-                    (userid, gameid, Money, streetsowned, railroadsowned, utilitiesowned, numofproperties))
+                    (userid, gameid, Money, streetsowned, railroadsowned, utilitiesowned$
         conn.commit()
         cur.close()
         conn.close()
         return redirect(url_for('index'))
 
     return render_template('played.html')
+                     
+@app.route('/deletegame/', methods=('GET', 'POST'))
+def gamedelete():
+    if request.method == 'POST':
+        gameid = int(request.form["gameid"])
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        #check if game id exists
+        query = 'select COUNT(*) from "game" where gameid = %s'
+        cur.execute(query, (gameid,))
+        game_count = cur.fetchone()[0]
+
+        if game_count == 1:
+            query3 = 'DELETE FROM "game" WHERE gameid = %s'
+            cur.execute(query3, (gameid,))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('index'))
+
+    return render_template('deletegame.html')
+                     
+@app.route('/deleteplayer/', methods=('GET', 'POST'))
+def playerdelete():
+    if request.method == 'POST':
+        userid = int(request.form["userid"])
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        #check if user id exists
+        query = 'select COUNT(*) from "user" where userid = %s'
+        cur.execute(query, (userid,))
+        count = cur.fetchone()[0]
+
+        if count == 1:
+            query = 'DELETE FROM "user" WHERE userid = %s'
+            cur.execute(query, (userid,))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('index'))
+
+    return render_template('deleteplayer.html')
