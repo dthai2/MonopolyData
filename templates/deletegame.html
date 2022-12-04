@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Delete A Game {% endblock %}</h1>
+    <div class='play'>
+        <form method="post">
+
+            <p>
+                <label for="gameid">Game ID: </label>
+                <input type="number" gameid="gameid"
+                       placeholder="Enter Game ID">
+                </input>
+                <label>*Game ID in the form 2*** (ex: 2000, 2001)</label>
+            </p>
+
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+
+        </form>
+    </div>
+{% endblock %}
