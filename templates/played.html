@@ -1,61 +1,63 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Add a New Stats {% endblock %}</h1>
-    <form method="post">
-        <p>
-            <label for="userid">User ID:</label>
-            <input type="number" name="userid"
-                   placeholder="Enter userid">
-            </input>
-        </p>
+    <h1>{% block title %} Add New Stats {% endblock %}</h1>
+    <div class='play'>
+        <form method="post">
+            <p>
+                <label for="userid">User ID: </label>
+                <input type="number" name="userid"
+                       placeholder="Enter User ID">
+                </input>
+            </p>
 
-        <p>
-            <label for="gameid">Game ID:</label>
-            <input type="number" name="gameid"
-                   placeholder="Enter gameid">
-            </input>
-        </p>
+            <p>
+                <label for="gameid">Game ID: </label>
+                <input type="number" name="gameid"
+                       placeholder="Enter Game ID">
+                </input>
+            </p>
 
-        <p>
-            <label for="Money">Remaining Balance:</label>
-            <input type="number" name="Money"
-                   placeholder="Enter remaining balance of player">
-            </input>
-        </p>
-        
-        <p>
-            <label for="streetsowned">Streets Owned by Player:</label>
-            <input type="text" name="streetsowned"
-                   placeholder="Separate by commas">
-            </input>
-        </p>
+            <p>
+                <label for="Money">Remaining Balance: </label>
+                <input type="number" name="Money"
+                       placeholder="Enter an Integer">
+                </input>
+            </p>
 
-        <p>
-            <label for="railroadsowned">Railroads Owned by Player:</label>
-            <input type="text" name="railroadsowned"
-                   placeholder="Separate by commas">
-            </input>
-        </p>
+            <p>
+                <label for="streetsowned">Streets Owned by Player: </label>
+                <input type="text" name="streetsowned"
+                       placeholder="Separate by Commas">
+                </input>
+            </p>
 
-        <p>
-            <label for="utilitiesowned">Utilities Owned by Player:</label>
-            <input type="text" name="utilitiesowned"
-                   placeholder="Separate by commas">
-            </input>
-        </p>
+            <p>
+                <label for="railroadsowned">Railroads Owned by Player: </label>
+                <input type="text" name="railroadsowned"
+                       placeholder="Separate by Commas">
+                </input>
+            </p>
 
-        <p>
-            <label for="numofproperties">Total number of properties:</label>
-            <input type="number" name="numofproperties"
-                   placeholder="Enter total properties">
-            </input>
-        </p>
+            <p>
+                <label for="utilitiesowned">Utilities Owned by Player: </label>
+                <input type="text" name="utilitiesowned"
+                       placeholder="Separate by Commas">
+                </input>
+            </p>
 
-        <p>
-            <button type="submit">Submit</button>
-        </p>
+            <p>
+                <label for="numofproperties">Total Number of Properties: </label>
+                <input type="number" name="numofproperties"
+                       placeholder="Enter an Integer">
+                </input>
+            </p>
 
-        
-    </form>
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+
+
+        </form>
+    </div>
 {% endblock %}
