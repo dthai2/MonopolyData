@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Edit A Game's Winner {% endblock %}</h1>
+    <div class='play'>
+        <form method="post">
+
+            <p>
+                <label for="gameid">Game ID: </label>
+                <input type="number" gameid="gameid"
+                       placeholder="Enter Game ID">
+                </input>
+            </p>
+
+            <p>
+                <label for="winnerid">New Winner: </label>
+                <input type="number" winnerid="winnerid"
+                       placeholder="Enter New Winner ID>
+                </input>
+            </p>
+
+
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+
+        </form>
+    </div>
+{% endblock %}
