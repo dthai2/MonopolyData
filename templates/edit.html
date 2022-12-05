@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Edit A Player {% endblock %}</h1>
+    <div class='play'>
+        <form method="post">
+
+            <p>
+                <label for="userid">User ID: </label>
+                <input type="number" userid="userid"
+                       placeholder="Enter User ID">
+                </input>
+            </p>
+
+            <p>
+                <label for="name">New Name: </label>
+                <input type="text" name="name"
+                       placeholder="Enter New Name">
+                </input>
+            </p>
+
+
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+
+        </form>
+    </div>
+{% endblock %}
