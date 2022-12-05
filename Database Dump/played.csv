@@ -1,3 +1,8 @@
 UserID,GameID,Money,StreetsOwned,RailroadsOwned,UtilitiesOwned,NumOfProperties
-1000,2000,15842,Mediterranean Ave',',Water Works',2
-1000,2001,18339,"Baltic Ave, Vermont Ave'","Reading, Short Line'",',4
+1000,2000,15842,'Mediterranean Ave',',Water Works',2
+1000,2001,18339,'Baltic Ave, Vermont Ave','Reading, Short Line','',4
+1001,2001,19441,'New York Ave','','Electric Company, Water Works',3
+1004,2002,19941,'Baltic Ave','Reading','Electric Company, Water Works',4
+1002,2002,17081,'Boardwalk','B&O','',2
+1003,2003,15842,'Baltic Ave','Reading, Short Line','Water Works',4
+1005,2003,15234,'Mediterranean Ave','B&O','',2
