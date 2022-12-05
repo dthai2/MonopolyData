@@ -16,6 +16,9 @@ Once everything above is met, you can being using the web application we've crea
 ## Using the Web Application
 For more insight on the steps being described below, you may find it useful to follow [this](https://www.digitalocean.com/community/tutorials/how-to-use-a-postgresql-database-in-a-flask-application) tutorial first to get a better understanding of how to connect the database to Flask and have your environment set up for success.
 
-  1. In PostgreSQL, create a database named 'Monopoly'.
-  '''postgres=# CREATE DATABASE monopoly; '''
+  1. In PostgreSQL, create a database named 'monopoly'. 
+  2. Download the zip file of all the code found here, and move the decompressed folder to the correct location where you have set up       your environment. Within that directory, switch into the directory of the file you just downloaded and moved.
+  3. Run the init_db file using 'python init_db.py'. This step will dump all of the data from the init db file into the 'monopoly'         database that you just created. 
+  4. Run flask to launch the application. Your output should provide you with a URL that says "Running on: " before the URL is displayed.   You can copy that URL and paste it into your browser.
+  5. From here, you can navigate that web application and use it how you wish.
 
