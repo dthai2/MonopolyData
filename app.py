@@ -172,3 +172,28 @@ def playerdelete():
         return redirect(url_for('index'))
 
     return render_template('deleteplayer.html')
+
+@app.route('/edit/', methods=('GET', 'POST'))
+def edit():
+    if request.method == 'POST':
+        userid = int(request.form["userid"])
+        name = int(request.form["name"])
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        #check if user id exists
+        query = 'select COUNT(*) from "user" where userid = %s'
+        cur.execute(query, (userid,))
+        count = cur.fetchone()[0]
+
+        if count == 1:
+            query = 'UPDATE "user" SET name = %s WHERE userid = %s'
+            cur.execute(query, (name, userid,))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('index'))
+
+    return render_template('edit.html')
