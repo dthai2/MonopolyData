@@ -216,7 +216,7 @@ def edit():
 def winner():
     if request.method == 'POST':
         gameid = int(request.form["gameid"])
-        winnerid = int(request.form["winnerid"])
+        winnerid = request.form["winnerid"]
 
         conn = get_db_connection()
         cur = conn.cursor()
