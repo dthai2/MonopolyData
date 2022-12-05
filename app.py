@@ -228,7 +228,7 @@ def winner():
 
         #check if winner id exists
         query = 'select COUNT(*) from "user" where userid = %s'
-        cur.execute(query, (userid,))
+        cur.execute(query, (winnerid,))
         count1 = cur.fetchone()[0]
 
         if count == 1 and count1 == 1:
