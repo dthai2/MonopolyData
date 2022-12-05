@@ -191,7 +191,7 @@ def playerdelete():
 def edit():
     if request.method == 'POST':
         userid = int(request.form["userid"])
-        name = int(request.form["name"])
+        name = request.form["name"]
 
         conn = get_db_connection()
         cur = conn.cursor()
@@ -216,7 +216,7 @@ def edit():
 def winner():
     if request.method == 'POST':
         gameid = int(request.form["gameid"])
-        winnerid = request.form["winnerid"]
+        winnerid = int(request.form["winnerid"])
 
         conn = get_db_connection()
         cur = conn.cursor()
