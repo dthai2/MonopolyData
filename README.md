@@ -14,9 +14,8 @@ To meet all of the prerequisties and successfully launch the web application, yo
 Once everything above is met, you can being using the web application we've created.
 
 ## Using the Web Application
-For more insight on what is being described below, you may find it useful ti follow this tutorial first to get a better understanding of how your environment should be set up to be successful.
-
-[Using PostgreSQL database in a Flask web application](https://www.digitalocean.com/community/tutorials/how-to-use-a-postgresql-database-in-a-flask-application)
+For more insight on the steps being described below, you may find it useful to follow [this](https://www.digitalocean.com/community/tutorials/how-to-use-a-postgresql-database-in-a-flask-application) tutorial first to get a better understanding of how to connect the database to Flask and have your environment set up for success.
 
   1. In PostgreSQL, create a database named 'Monopoly'.
+  '''postgres=# CREATE DATABASE monopoly; '''
 
