@@ -32,6 +32,20 @@ def userStats():
     conn.close()
     return render_template('userinfo.html', user=user)
 
+@app.route('/userinfo', methods=('GET', 'POST'))
+def search():
+    if request.method == 'POST':
+        userid = int(request.form["Search"])
+        conn = get_db_connection()
+        cur = conn.cursor()
+        query = 'select * from "user" where userid = %s'
+        cur.execute(query, (userid,))
+        user = cur.fetchall()
+        cur.close()
+        conn.close()
+    return render_template('userinfo.html', user=user)
+
+
 @app.route('/create/', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
