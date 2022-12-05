@@ -11,6 +11,7 @@ def get_db_connection():
                             password=os.environ['DB_PASSWORD'])
     return conn
 
+
 @app.route('/')
 def index():
     conn = get_db_connection()
@@ -40,7 +41,7 @@ def create():
 
         conn = get_db_connection()
         cur = conn.cursor()
-        # need to generate a count for user
+        # need to generate a count for user 
         cur.execute('SELECT COUNT(*) FROM "user"')
         user_count = cur.fetchone()[0]
         id = user_count + 1000
@@ -81,8 +82,8 @@ def createGame():
             #update count of winner
             query2 = 'UPDATE "user" SET gameswon = gameswon + 1 WHERE userid = %s'
             cur.execute(query2, (winner,))
-
-
+      
+        
         conn.commit()
         cur.close()
         conn.close()
@@ -103,7 +104,7 @@ def createPlayed():
 
         conn = get_db_connection()
         cur = conn.cursor()
-
+        
          #check if game id exists
         query = 'select COUNT(*) from "game" where gameid = %s'
         cur.execute(query, (gameid,))
@@ -114,16 +115,16 @@ def createPlayed():
         user_count = cur.fetchone()[0]
 
         if count == 1 and user_count >0:
-            cur.execute('INSERT INTO "played" (userid, gameid, money, streetsowned, rail$
+            cur.execute('INSERT INTO "played" (userid, gameid, money, streetsowned, railroadsowned, utilitiesowned, numproperties)'
                     'VALUES (%s, %s, %s, %s, %s, %s, %s)',
-                    (userid, gameid, Money, streetsowned, railroadsowned, utilitiesowned$
+                    (userid, gameid, Money, streetsowned, railroadsowned, utilitiesowned, numofproperties))
         conn.commit()
         cur.close()
         conn.close()
         return redirect(url_for('index'))
 
     return render_template('played.html')
-                     
+
 @app.route('/deletegame/', methods=('GET', 'POST'))
 def gamedelete():
     if request.method == 'POST':
@@ -131,8 +132,8 @@ def gamedelete():
 
         conn = get_db_connection()
         cur = conn.cursor()
-
-        #check if game id exists
+        
+	#check if game id exists
         query = 'select COUNT(*) from "game" where gameid = %s'
         cur.execute(query, (gameid,))
         game_count = cur.fetchone()[0]
@@ -147,7 +148,7 @@ def gamedelete():
         return redirect(url_for('index'))
 
     return render_template('deletegame.html')
-                     
+
 @app.route('/deleteplayer/', methods=('GET', 'POST'))
 def playerdelete():
     if request.method == 'POST':
