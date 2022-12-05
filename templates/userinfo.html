@@ -2,6 +2,16 @@
 
 {% block content %}
     <h1>{% block title %} Monopoly Players {% endblock %}</h1>
+    <div class="topnav">
+        <form method="post">
+            <p>
+                <label for="Search">Search: </label>
+                <input type="text" name="Search" placeholder="Search for userid ... ">
+                <button type="find">Find</button>
+            </input>
+            </p>
+        </form>
+    </div>
     <div class="table">
         {% for player in user %}
             <div class='play'>
