@@ -197,3 +197,33 @@ def edit():
         return redirect(url_for('index'))
 
     return render_template('edit.html')
+
+@app.route('/winner/', methods=('GET', 'POST'))
+def winner():
+    if request.method == 'POST':
+        gameid = int(request.form["gameid"])
+        winnerid = int(request.form["winnerid"])
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        #check if game id exists
+        query = 'select COUNT(*) from "user" where userid = %s'
+        cur.execute(query, (gameid,))
+        count = cur.fetchone()[0]
+
+        #check if winner id exists
+        query = 'select COUNT(*) from "user" where userid = %s'
+        cur.execute(query, (userid,))
+        count1 = cur.fetchone()[0]
+
+        if count == 1 and count1 == 1:
+            query = 'UPDATE "game" SET winnerid = %s WHERE gameid = %s'
+            cur.execute(query, (winnerid, gameid,))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('index'))
+
+    return render_template('winner.html')
